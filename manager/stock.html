@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+    <h2>Stock Management (Manager)</h2>
+    <p>View available stock per branch</p>
+</header>
+
+<nav>
+    <a href="procurement.html">Procurement</a> |
+    <a href="sales.html">Sales</a> |
+    <a href="stock.html">Stock</a> |
+    <a href="../index.html">Logout</a>
+</nav>
+
+<hr>
+
+<section>
+    <h3>Current Stock Levels</h3>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Produce Name</th>
+                <th>Produce Type</th>
+                <th>Branch</th>
+                <th>Available Tonnage (kg)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Beans</td>
+                <td>Cereal</td>
+                <td>Branch A</td>
+                <td>4,500</td>
+                <td>✔ Available</td>
+            </tr>
+            <tr>
+                <td>Maize</td>
+                <td>Grain</td>
+                <td>Branch B</td>
+                <td>0</td>
+                <td style="color:red;">❌ Out of Stock</td>
+            </tr>
+            <tr>
+                <td>Groundnuts</td>
+                <td>Legume</td>
+                <td>Branch A</td>
+                <td>800</td>
+                <td style="color:orange;">⚠ Low Stock</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<hr>
+
+<section>
+    <h3>Stock Rules</h3>
+    <ul>
+        <li>Only available stock can be sold</li>
+        <li>Stock reduces automatically after sales</li>
+        <li>Manager is notified when stock is low or zero</li>
+    </ul>
+</section>
+
+<footer>
+    <p>&copy; 2026 Karibu Groceries Limited</p>
+</footer>
+
+</body>
+</html>

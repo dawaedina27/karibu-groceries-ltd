@@ -1,0 +1,210 @@
+/* ******************************
+   GLOBAL STYLES
+********************************* */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ******************************
+   LOGIN PAGE
+****************************** */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #ffffff;
+  width: 360px;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.login-box label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.login-box button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.login-box button:hover {
+  background: #1b5e20;
+}
+
+/* ******************************
+   DASHBOARD LAYOUT
+****************************** */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ******************************
+   SIDEBAR
+****************************** */
+.sidebar {
+  width: 240px;
+  background: #2e7d32;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.sidebar p {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.sidebar img {
+  display: block;
+  margin: 0 auto 10px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sidebar ul li a {
+  color: white;
+  display: block;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ******************************
+   MAIN CONTENT
+****************************** */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.content h2 {
+  margin-bottom: 15px;
+  color: #2e7d32;
+}
+
+/* ******************************
+   CARDS
+****************************** */
+.card {
+  background: white;
+  padding: 100px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* ******************************
+   FORMS
+****************************** */
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #1b5e20;
+}
+
+/* ******************************
+   TABLES
+****************************** */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+table th,
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background: #2e7d32;
+  color: white;
+}
+
+/* ******************************
+   BACK LINKS
+****************************** */
+.sidebar a {
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL Login</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/auth.js" defer></script>
+</head>
+<body>
+
+<h1>Karibu Groceries Limited</h1>
+<h2>User Login</h2>
+
+<form id="loginForm">
+
+    <label>Select Role</label><br>
+    <select id="role" required>
+        <option value="">--Select Role--</option>
+        <option value="manager">Manager</option>
+        <option value="agent">Sales Agent</option>
+        <option value="director">Director</option>
+    </select><br><br>
+
+<select id="branch">
+<option value="">Select Branch</option>
+<option value="Maganjo">Maganjo</option>
+<option value="Matugga">Matugga</option>
+</select> <br><br>
+
+    <label>Username</label><br>
+    <input type="text" id="username" required><br><br>
+
+    <label>Password</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+<p id="error"></p>
+
+</body>
+</html>
+
