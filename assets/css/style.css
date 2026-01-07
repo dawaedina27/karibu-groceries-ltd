@@ -1,15 +1,16 @@
 /* ******************************
-   GLOBAL STYLES
+   BODY / GLOBAL STYLES
 ********************************* */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 body {
-  background-color: #f4f6f8;
+  background-color: #c7c4c6ff;
   color: #333;
 }
 
@@ -29,7 +30,7 @@ a {
 }
 
 .login-box {
-  background: #ffffff;
+  background: #07301eff;
   width: 360px;
   padding: 30px;
   border-radius: 6px;
@@ -145,12 +146,45 @@ a {
 ****************************** */
 .card {
   background: white;
-  padding: 100px;
+  padding: 20px; /* Reduced padding from 100px */
   border-radius: 5px;
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+
+
+
+/* ******************************
+   FORM CONTAINER
+****************************** */
+
+.login-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #0c0202ff;
+}
+
+form {
+  display: block;          /* needed for width & margin */
+  max-width: 500px;        /* maximum width of form */
+  width: 100%;              /* use 90% of screen if smaller than max-width */
+  margin: 40px auto;       /* center horizontally & add vertical spacing */
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border: 1px solid #0d0c0cff;
+  background-color: #e1dfe1ff;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
 /* ******************************
    FORMS
 ****************************** */
@@ -158,13 +192,16 @@ form label {
   display: block;
   margin-top: 15px;
   font-weight: bold;
+  boackground-color: #f1b8deff;
 }
 
 form input,
 form select {
-  width: 100%;
+  width: 100%;             /* full width inside container */
   padding: 10px;
   margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 form button {
@@ -180,6 +217,7 @@ form button {
 form button:hover {
   background: #1b5e20;
 }
+
 
 /* ******************************
    TABLES
@@ -207,4 +245,19 @@ table th {
 ****************************** */
 .sidebar a {
   font-weight: bold;
+}
+
+/* ******************************
+   RESPONSIVE
+****************************** */
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
 }
