@@ -1,80 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Management</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Stock Management</title>
+  <link rel="stylesheet" href="../assets/css/stock.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   
 </head>
 <body>
 
-<header>
-    <h2>Stock Management (Manager)</h2>
-    <p>View available stock per branch</p>
-</header>
+<div class="dashboard">
 
-<nav>
-    <a href="procurement.html">Procurement</a> |
-    <a href="sales.html">Sales</a> |
-    <a href="stock.html">Stock</a> |
-    <a href="../index.html">Logout</a>
-</nav>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+     <div class="profile">
+      <img src="../assets/img/mine.jpg" alt="Manager">
+      <h4 id="managerName">Manager</h4>
+      <small id="managerBranch"></small>
+    </div>
+    
+    <nav>
+      <ul class="menu">
+      <li><a href="manager.html"><i class="fa fa-home"></i> Dashboard</a></li>
+      <li><a href="procurement.html" class="active"><i class="fa fa-truck"></i> Procurement</a></li>
+      <li><a href="stock.html"><i class="fa fa-warehouse"></i> Stock</a></li>
+      <li><a href="sales.html"><i class="fa fa-chart-line"></i> Sales</a></li>
+      <li><a href="reports.html"><i class="fa fa-file"></i> Reports</a></li>
+      <li><a href="settings.html"><i class="fa fa-gear"></i> Settings</a></li>
+      <a href="../index.html" class="logout">Logout</a>
+      </ul>
+    </nav>
+  </aside>
 
-<hr>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
-<section>
-    <h3>Current Stock Levels</h3>
+    <div class="header">
+      <img
+            class="logo"
+            height="80"
+            width="80"
+            src="../assets/images/logo1.png"
+            alt="Logo"
+          />
+      <h1>Stock Overview</h1>
+      <button onclick="history.back()" class="back-btn">⬅ Back</button>
+    </div>
 
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Produce Name</th>
-                <th>Produce Type</th>
-                <th>Branch</th>
-                <th>Available Tonnage (kg)</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Beans</td>
-                <td>Cereal</td>
-                <td>Branch A</td>
-                <td>4,500</td>
-                <td>✔ Available</td>
-            </tr>
-            <tr>
-                <td>Maize</td>
-                <td>Grain</td>
-                <td>Branch B</td>
-                <td>0</td>
-                <td style="color:red;">❌ Out of Stock</td>
-            </tr>
-            <tr>
-                <td>Groundnuts</td>
-                <td>Legume</td>
-                <td>Branch A</td>
-                <td>800</td>
-                <td style="color:orange;">⚠ Low Stock</td>
-            </tr>
-        </tbody>
+    <table id="stockTable" -1>
+      <thead>
+        <tr>
+          <th>Produce Name</th>
+          <th>Produce Type</th>
+          <th>Quantity (kg)</th>
+          <th>Unit Price</th>
+          <th>Branch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- JS inserts rows -->
+      </tbody>
     </table>
-</section>
 
-<hr>
+  </main>
+</div>
 
-<section>
-    <h3>Stock Rules</h3>
-    <ul>
-        <li>Only available stock can be sold</li>
-        <li>Stock reduces automatically after sales</li>
-        <li>Manager is notified when stock is low or zero</li>
-    </ul>
-</section>
-
-<footer>
-    <p>&copy; 2026 Karibu Groceries Limited</p>
-</footer>
-
+<script src="../assets/js/stock.js"></script>
 </body>
 </html>

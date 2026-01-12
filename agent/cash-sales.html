@@ -1,33 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash Sales</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Sales | Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sales.css">
 </head>
 <body>
 
+<aside class="sidebar">
+  <h2>KGL Manager</h2>
+  <nav>
+    <a href="#">Dashboard</a>
+    <a class="active" href="#">Sales</a>
+    <a href="#">Stock</a>
+    <a href="#">Reports</a>
+  </nav>
+</aside>
 
+<main class="main-content">
 
-<div class="form-container">
-<form>
-    <h2 class = "form-title">Cash Sales (Agent)</h2>
+<header class="topbar">
+  <button onclick="history.back()">⬅ Back</button>
+  <div class="profile">
+    <span>Manager</span>
+    <button class="logout">Logout</button>
+  </div>
+</header>
 
-    <label>Produce</label>
-    <input type="text" required>
+<h1>Produce Sales</h1>
 
-    <label>Tonnage</label>
-    <input type="number" min="1" required>
+<!-- Sale Type Selector -->
+<div class="card">
+  <label><strong>Select Sale Type</strong></label>
+  <select id="saleType">
+    <option value="">-- Select --</option>
+    <option value="cash">Cash Sale</option>
+    <option value="credit">Credit Sale</option>
+  </select>
+</div>
 
-    <label>Amount Paid</label>
-    <input type="number" min="10000" required>
+<!-- Cash Sale Form -->
+<section class="card hidden" id="cashSection">
+  <h2>Cash Sale</h2>
+  <form id="cashSaleForm">
+    <select id="produce"></select>
+    <input id="stock" readonly placeholder="Available Stock">
+    <input id="price" readonly placeholder="Price per Kg">
+    <input id="tonnage" type="number" placeholder="Tonnage (kg)" required>
+    <input id="amountPaid" placeholder="Amount Paid (UGX)" required>
+    <input id="buyer" placeholder="Buyer Name" required>
+    <input id="agent" placeholder="Sales Agent Name" required>
+    <button type="submit">Record Cash Sale</button>
+  </form>
+</section>
 
-    <label>Buyer Name</label>
-    <input type="text" minlength="2" required>
+<!-- Credit Sale Form -->
+<section class="card hidden" id="creditSection">
+  <h2>Credit Sale</h2>
+  <form id="creditSaleForm">
+    <input id="cBuyer" placeholder="Buyer Name" required>
+    <input id="nin" placeholder="National ID (NIN)" required>
+    <input id="location" placeholder="Location" required>
+    <input id="contact" placeholder="Contact" required>
+    <select id="cProduce"></select>
+    <input id="type" readonly placeholder="Produce Type">
+    <input id="cTonnage" type="number" placeholder="Tonnage (kg)" required>
+    <input id="amountDue" placeholder="Amount Due (UGX)" required>
+    <input id="cAgent" placeholder="Sales Agent Name" required>
+    <input id="dueDate" type="date" required>
+    <input id="dispatchDate" type="date" required>
+    <button type="submit">Record Credit Sale</button>
+  </form>
+</section>
 
-    <button type="submit">Save</button>
-</form>
+<!-- Cash Sales List -->
+<section class="card">
+  <h2>Cash Sales Records</h2>
+  <table id="cashTable">
+    <tr>
+      <th>Produce</th><th>Tonnage</th><th>Amount</th><th>Buyer</th><th>Agent</th>
+    </tr>
+  </table>
+</section>
 
+<!-- Credit Sales List -->
+<section class="card">
+  <h2>Credit Sales Records</h2>
+  <table id="creditTable">
+    <tr>
+      <th>Buyer</th><th>Produce</th><th>Tonnage</th><th>Amount Due</th><th>Due Date</th>
+    </tr>
+  </table>
+</section>
+
+</main>
+
+<script src="sales.js"></script>
 </body>
 </html>

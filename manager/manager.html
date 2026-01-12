@@ -1,28 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Manager Dashboard</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/manager.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<div class="dashboard">
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
-    <h3>Manager</h3>
-    <p>Branch</p>
-    <ul>
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="procurement.html">Procurement</a></li>
-      <li><a href="stock.html">Stock</a></li>
-      <li><a href="sales.html">Sales</a></li>
-    </ul>
+    <div class="profile">
+      <img src="../assets/images\mine.jpg">
+      <h4 id="managerName">Manager</h4>
+      <h4>Manager</h4>
+      <span class="online">● Online</span>
+    </div>
+
+   <ul class="menu">
+  <li>
+    <a href="manager.html">
+      <i class="fa fa-home"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="procurement.html">
+      <i class="fa fa-box"></i>
+      <span>Procurement</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="stock.html">
+      <i class="fa fa-warehouse"></i>
+      <span>Stock</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="sales.html">
+      <i class="fa fa-chart-line"></i>
+      <span>Sales</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="reports.html">
+      <i class="fa fa-file"></i>
+      <span>Reports</span>
+    </a>
+  </li>
+
+  <li>
+    <a href="settings.html">
+      <i class="fa fa-gear"></i>
+      <span>Settings</span>
+    </a>
+  </li>
+</ul>
+
   </aside>
 
-  <main class="content">
-    <h2>Manager Dashboard</h2>
-    <p>Manage procurement, prices, stock and sales.</p>
-  </main>
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <h2>KGL Dashboard</h2>
+
+      <div class="top-actions">
+        <span id="branchName"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+      <h3>Dashboard</h3>
+
+      <!-- STAT CARDS -->
+      <div class="cards">
+        <div class="card">
+          <i class="fa fa-money-bill"></i>
+          <h4>Recent Sales</h4>
+          <p>UGX 1,200,000</p>
+        </div>
+
+        <div class="card">
+          <i class="fa fa-triangle-exclamation"></i>
+          <h4>Low Stock</h4>
+          <p>5 Items</p>
+        </div>
+
+        <div class="card">
+          <i class="fa fa-truck"></i>
+          <h4>Stock Arrival</h4>
+          <p>2 Pending</p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
 </div>
+
+<script src="../assets/js/manager.js"></script>
+<script src="../assets/js/logout.js"></script>
+<script src="../assets/js/sidebar.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,147 @@
+/* Director dashboard styles
+   Simple, readable, responsive layout for the Director role.
+   - Sidebar on the left
+   - Main content with topbar, KPI cards, charts and tables
+   - Labels are above their inputs and spaced vertically
+*/
+
+/* Reset & defaults */
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+:root{
+  --bg: #f4f6f8;
+  --card-bg: #ffffff;
+  --accent: #2563eb;
+  --muted: #64748b;
+  --kpi-bg: #f8fafc;
+  --radius: 8px;
+  --max-width: 1200px;
+}
+
+/* Page layout */
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: #0b1220;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #0f1724;
+  color: #e2e8f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar .brand { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.sidebar .logo { width:40px; height:40px; object-fit:cover; border-radius:6px; }
+.sidebar h2 { margin:0; font-size:18px; }
+.sidebar .role { font-size:12px; color:var(--muted); margin-top:4px; }
+
+.menu { margin: 8px 0 0 0; padding: 0; flex:1; }
+.menu ul { list-style: none; padding: 0; margin: 0; }
+.menu li { margin-bottom: 6px; }
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+}
+.menu a i { width:20px; text-align:center; font-size:16px; color: #cbd5e1; }
+.menu a:hover, .menu a.active { background: #111827; color: #fff; }
+
+/* Sidebar footer */
+.sidebar-footer { font-size:12px; color:var(--muted); margin-top: 14px; }
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.topbar-left h1 { margin: 0; font-size: 20px; }
+.topbar-left .subtitle { margin:0; color:var(--muted); font-size:13px; }
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Filters form: labels above inputs */
+.filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.filters label { font-size: 12px; color: var(--muted); }
+.filters input[type="date"] { padding: 6px 8px; border-radius:6px; border:1px solid #e6eef8; }
+.btn { padding: 8px 10px; border-radius:6px; border: none; background: var(--accent); color: #fff; cursor: pointer; }
+.btn.small { padding: 6px 8px; font-size: 13px; }
+.btn.outline { background: transparent; border:1px solid #cbd5e1; color: #0b1220; }
+
+/* KPI cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+.card {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(12, 17, 23, 0.06);
+}
+.card h2 { margin: 0 0 10px 0; font-size: 16px; }
+.kpi { background: var(--kpi-bg); text-align: left; }
+.kpi-title { color: var(--muted); font-size: 13px; margin-bottom:6px; }
+.kpi-value { font-size: 20px; font-weight:700; color: #0f1724; margin-bottom:6px; }
+.kpi-note { color: var(--muted); font-size:12px; }
+
+/* Layout for charts */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+.chart-card { padding: 12px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
+table th, table td { border: 1px solid #e6eef8; padding: 8px; text-align: left; }
+table thead th { background: #f8fafc; color: #111827; font-weight:700; }
+.striped tbody tr:nth-child(odd) { background: #fbfdff; }
+
+/* Form rows - labels above inputs and stacked */
+.form-row { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+.form-row label { font-weight:700; color:#0b1220; font-size:13px; }
+.form-row input, .form-row select, .form-row textarea { padding:8px 10px; border-radius:6px; border:1px solid #e6eef8; background:#fff; max-width:420px; width:100%; }
+
+/* Footer */
+.page-footer { margin-top: 18px; color:var(--muted); font-size:12px; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .main-content { padding: 16px; }
+}
+@media (max-width: 600px) {
+  .sidebar { display: none; }
+  body { padding-left: 0; }
+}

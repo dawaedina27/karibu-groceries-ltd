@@ -1,25 +1,140 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Director Dashboard</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="utf-8" />
+  <title>Director Dashboard — KGL</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+  <!-- Dashboard styles/css -->
+  <link rel="stylesheet" href="../assets/css/director.css">
+
+  <!-- Chart.js for charts (to be used by director.js) -->
+ 
+
+  <!-- Director page logic -->
+  <script src="../assets/js/director.js" defer></script>
+
+  <!-- Reuse the shared logout script (clears localStorage and returns to index.html) -->
+  <script src="../assets/js/logout.js" defer></script>
 </head>
 <body>
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Primary">
+    <div class="brand">
+      <img src="../assets/images/logo.png" alt="KGL logo" class="logo">
+      <h2>KGL</h2>
+      <p class="role">Director</p>
 
-<div class="dashboard">
-  <aside class="sidebar">
-    <h3>Mr. Orban</h3>
-    <ul>
-      <li><a href="director.html">Overview</a></li>
-      <li><a href="reports.html">Reports</a></li>
-    </ul>
+    </div>
+
+    <nav class="menu" aria-label="Main navigation">
+      <ul>
+        <li><a href="../manager/director.html"><i class="fa-solid fa-chart-line"></i>Overview</a></li>
+        <li><a href="../manager/employee.html"><i class="fa-solid fa-chart-line"></i>Employee Management</a></li>
+        <li><a href="#" class="active"><i class="fa-solid fa-file-lines"></i>Reports</a></li>
+        <li><a href="../manager/settings.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <small>Signed in as <strong id="directorName">Director</strong></small>
+    </div>
   </aside>
 
-  <main class="content">
-    <h2>Director Overview</h2>
-    <p>View totals across all branches.</p>
-  </main>
-</div>
+  <!-- Main content -->
+  <main class="main-content">
+    <!-- Top bar with page title, quick filters and logout -->
+    <header class="topbar" role="banner">
+      <div class="topbar-left">
+        <h1>Director Dashboard</h1>
+        <p class="subtitle">High level overview and reports</p>
+      </div>
 
+      <div class="topbar-actions">
+        <!-- simple date filter -->
+        <form id="quickFilters" class="filters" aria-label="Quick filters">
+          <label for="fromDate">From</label>
+          <input id="fromDate" type="date" />
+          <label for="toDate">To</label>
+          <input id="toDate" type="date" />
+          <button type="submit" class="btn small">Apply</button>
+        </form>
+
+        <!-- logout button (logout.js uses this id) -->
+        <button id="logoutBtn" class="btn outline">Logout</button>
+      </div>
+    </header>
+
+    <!-- Summary cards -->
+    <section class="cards" aria-label="Key performance indicators">
+      <article class="card kpi">
+        <div class="kpi-title">Total Sales (UGX)</div>
+        <div class="kpi-value" id="kpiSales">—</div>
+        <small class="kpi-note">Last 30 days</small>
+      </article>
+
+      <article class="card kpi">
+        <div class="kpi-title">Pending Credit</div>
+        <div class="kpi-value" id="kpiCredit">—</div>
+        <small class="kpi-note">Invoices unpaid</small>
+      </article>
+
+      <article class="card kpi">
+        <div class="kpi-title">Active Managers</div>
+        <div class="kpi-value" id="kpiManagers">—</div>
+        <small class="kpi-note">Across branches</small>
+      </article>
+
+      <article class="card kpi">
+        <div class="kpi-title">Low Stock Alerts</div>
+        <div class="kpi-value" id="kpiAlerts">—</div>
+        <small class="kpi-note">Products below threshold</small>
+      </article>
+    </section>
+
+    <!-- Charts + recent activity -->
+    <section class="layout">
+      <!-- Sales trend chart -->
+      <div class="card chart-card">
+        <h2>Sales Trend</h2>
+        <canvas id="salesChart" width="400" height="160" aria-label="Sales trend chart"></canvas>
+      </div>
+
+      <!-- Distribution chart -->
+      <div class="card chart-card">
+        <h2>Sales by Produce</h2>
+        <canvas id="produceChart" width="300" height="160" aria-label="Sales by produce chart"></canvas>
+      </div>
+    </section>
+
+    <!-- Recent tables -->
+    <section class="card">
+      <h2>Recent Cash Sales</h2>
+      <table id="recentCash" class="striped" aria-describedby="recent cash sales">
+        <thead>
+          <tr><th>Date</th><th>Branch</th><th>Produce</th><th>Tonnage</th><th>Amount (UGX)</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Pending Credit Invoices</h2>
+      <table id="pendingCredit" class="striped" aria-describedby="pending credit invoices">
+        <thead>
+          <tr><th>Invoice</th><th>Buyer</th><th>Branch</th><th>Amount</th><th>Due Date</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <small>© KGL — Director Dashboard</small>
+    </footer>
+  </main>
 </body>
 </html>

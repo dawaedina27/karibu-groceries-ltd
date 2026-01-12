@@ -1,45 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KGL Login</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="assets/js/auth.js" defer></script>
-</head>
-<body>
 
-<h1>Karibu Groceries Limited</h1>
-<h2>User Login</h2>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <img
+      class="logo"
+      height="80"
+      width="80"
+      src="assets/images/groceries/kclogo.jpg"
+      alt="Logo"
+    />
 
-<form id="login-form">
-    <h2 class="form-title">User Login</h2>
+    <div class="popup-overlay">
+      <form id="loginForm" class="login-form">
+        <div class="logo-title-container">
+          <img
+            class="logo"
+            height="80"
+            width="80"
+            src="images/logo1.png"
+            alt="Logo"
+          />
+          <h2 class="form-title">Login</h2>
+        </div>
 
-    <label>Select Role</label><br>
-    <select id="role" required>
-        <option value="">--Select Role--</option>
-        <option value="manager">Manager</option>
-        <option value="agent">Sales Agent</option>
-        <option value="director">Director</option>
-    </select><br><br>
+        <!-- Role -->
+        <label for="role">
+          <i class="fa-solid fa-user-tag"></i> Select Role
+        </label>
+        <select id="role" required>
+          <option value="">--Select Role--</option>
+          <option value="manager">Manager</option>
+          <option value="agent">Sales Agent</option>
+          <option value="director">Director</option>
+        </select>
 
-<select id="branch">
-<option value="">Select Branch</option>
-<option value="Maganjo">Maganjo</option>
-<option value="Matugga">Matugga</option>
-</select> <br><br>
+        <!-- Branch (wrapped so we can hide label + select together) -->
+        <div id="branchRow" class="branch-row">
+          <label for="branch">
+            <i class="fa-solid fa-code-branch"></i> Select Branch
+          </label>
+          <select id="branch" required>
+            <option value="">Select Branch</option>
+            <option value="Maganjo">Maganjo</option>
+            <option value="Matugga">Matugga</option>
+          </select>
+        </div>
 
-    <label>Username</label><br>
-    <input type="text" id="username" required><br><br>
+        <!-- Username -->
+        <label for="username">
+          <i class="fa-solid fa-user"></i> Username
+        </label>
+        <input type="text" id="username" required />
 
-    <label>Password</label><br>
-    <input type="password" id="password" required><br><br>
+        <!-- Password -->
+        <label for="password">
+          <i class="fa-solid fa-lock"></i> Password
+        </label>
+        <div class="password-container">
+          <input type="password" id="password" required />
+          <button
+            type="button"
+            id="togglePassword"
+            class="toggle-password"
+            aria-label="Show password"
+          >
+            👁️
+          </button>
+        </div>
 
-    <button type="submit">Login</button>
-</form>
+        <button type="submit">Login</button>
+      </form>
+    </div>
 
-<p id="error"></p>
+    <p id="error" class="error" aria-live="polite"></p>
 
-</body>
+    <script src="assets/js/auth.js"></script>
+  </body>
 </html>
-

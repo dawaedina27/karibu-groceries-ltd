@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: rgb(67, 28, 28);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #2f4054;
+}
+
+.logout {
+  margin-top: auto;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  background: #c0392b;
+  text-align: center;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.back-btn {
+  border: none;
+  background: #ddd;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.procurement-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+}
+
+.btn-primary {
+  grid-column: span 2;
+  padding: 12px;
+  background: rgb(67, 28, 28);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

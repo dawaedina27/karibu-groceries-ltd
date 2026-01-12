@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #2f4054;
+}
+
+.sidebar {
+  width: 220px;
+  background: rgb(67, 28, 28);
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background: #2f4054;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.profile {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.logout {
+  background: crimson;
+  color: #fff;
+  border: none;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 20px;
+  background-color: rgb(245, 243, 243);
+  padding-left: 20px;
+}
+
+form label {
+  font-weight: bold;
+
+}
+
+form input,
+form select,
+form button {
+ 
+  padding: 8px;
+ 
+}
+
+form input{
+    width: 500px;
+    padding: auto;
+}
+
+.form-button {
+  background: rgb(67, 28, 28);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+a {
+    list-style: none;
+}

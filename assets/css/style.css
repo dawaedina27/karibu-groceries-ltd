@@ -1,3 +1,4 @@
+
 /* ******************************
    BODY / GLOBAL STYLES
 ********************************* */
@@ -22,54 +23,105 @@ a {
 /* ******************************
    LOGIN PAGE
 ****************************** */
-.login-container {
-  height: 100vh;
+/* ==============================
+   RESET & BASE STYLES
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0c0202; /* dark background */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #ffffff;
 }
 
-.login-box {
-  background: #07301eff;
-  width: 360px;
-  padding: 30px;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.login-box h2 {
-  text-align: center;
+/* ==============================
+   PAGE TITLE
+================================ */
+h1 {
   margin-bottom: 20px;
   color: #2e7d32;
 }
 
-.login-box label {
+/* ==============================
+   LOGIN FORM CARD
+================================ */
+.login-form {
+  width: 360px;
+  background: #07301e;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ==============================
+   FORM TITLE
+================================ */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+/* ==============================
+   LABELS
+================================ */
+.login-form label {
   display: block;
   margin-top: 12px;
+  margin-bottom: 6px;
   font-weight: bold;
+  color: #c8e6c9;
 }
 
-.login-box input,
-.login-box select {
+/* ==============================
+   INPUTS & SELECTS
+================================ */
+.login-form input,
+.login-form select {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 14px;
 }
 
-.login-box button {
+/* ==============================
+   BUTTON
+================================ */
+.login-form button {
   width: 100%;
   margin-top: 20px;
   padding: 12px;
   background: #2e7d32;
-  color: white;
+  color: #ffffff;
   border: none;
-  cursor: pointer;
   border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.login-box button:hover {
+.login-form button:hover {
   background: #1b5e20;
 }
+
+/* ==============================
+   ERROR MESSAGE
+================================ */
+#error {
+  margin-top: 15px;
+  color: #ff5252;
+}
+
 
 /* ******************************
    DASHBOARD LAYOUT
@@ -159,13 +211,7 @@ a {
    FORM CONTAINER
 ****************************** */
 
-.login-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #0c0202ff;
-}
+
 
 form {
   display: block;          /* needed for width & margin */

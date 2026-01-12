@@ -1,53 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produce Procurement</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Procurement | Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../assets/css/procurement.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<h2>Produce Procurement (Manager)</h2>
+<div class="dashboard">
 
-<form>
-    <h2 class="form-title">Produce Procurement (Manager)</h2>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="../assets/img/mine.jpg" alt="Manager">
+      <h4 id="managerName">Manager</h4>
+      <small id="managerBranch"></small>
+    </div>
 
-    <label>Produce Name</label>
-    <input type="text" pattern="[A-Za-z0-9 ]+" required>
+    <ul class="menu">
+      <li><a href="manager.html"><i class="fa fa-home"></i> Dashboard</a></li>
+      <li><a href="procurement.html" class="active"><i class="fa fa-truck"></i> Procurement</a></li>
+      <li><a href="stock.html"><i class="fa fa-warehouse"></i> Stock</a></li>
+      <li><a href="sales.html"><i class="fa fa-chart-line"></i> Sales</a></li>
+      <li><a href="reports.html"><i class="fa fa-file"></i> Reports</a></li>
+      <li><a href="settings.html"><i class="fa fa-gear"></i> Settings</a></li>
+    </ul>
 
-    <label>Produce Type</label>
-    <input type="text" pattern="[A-Za-z ]{2,}" required>
+    <a href="../auth/logout.php" class="logout">
+      <i class="fa fa-sign-out-alt"></i> Logout
+    </a>
+  </aside>
 
-    <label>Date</label>
-    <input type="date" required>
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-    <label>Time</label>
-    <input type="time" required>
+    <div class="topbar">
+      <button onclick="history.back()" class="back-btn">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>
+      <h2 class="topbar-h2">Produce Procurement</h2>
+    </div>
 
-    <label>Tonnage (kg)</label>
-    <input type="number" min="1000" required>
+    <div class="card">
+      <form class="procurement-form">
 
-    <label>Cost (UGX)</label>
-    <input type="number" min="10000" required>
+        <div class="form-group">
+          <label>Produce Name</label>
+          <input type="text" name="produceName" pattern="[A-Za-z0-9 ]+" required>
+        </div>
 
-    <label>Dealer Name</label>
-    <input type="text" minlength="2" required>
+        <div class="form-group">
+          <label>Produce Type</label>
+          <input type="text" name="produceType" pattern="[A-Za-z ]{2,}" required>
+        </div>
 
-    <label>Branch</label>
-    <select required>
-        <option>Branch A</option>
-        <option>Branch B</option>
-    </select>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" name="date" required>
+        </div>
 
-    <label>Dealer Contact</label>
-    <input type="tel" pattern="07[0-9]{8}" required>
+        <div class="form-group">
+          <label>Time</label>
+          <input type="time" name="time" required>
+        </div>
 
-    <label>Selling Price</label>
-    <input type="number" min="10000" required>
+        <div class="form-group">
+          <label>Tonnage (kg)</label>
+          <input type="number" name="tonnage" min="1000" required>
+        </div>
 
-    <button type="submit">Save</button>
-</form>
+        <div class="form-group">
+          <label>Unit Cost (UGX per kg)</label>
+          <input type="number" name="unitCost" min="1" required>
+        </div>
 
+        <div class="form-group">
+          <label>Amount (UGX)</label>
+          <input type="number" name="amount" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Dealer Name</label>
+          <input type="text" name="dealerName" minlength="2" required>
+        </div>
+
+        <div class="form-group">
+          <label>Branch</label>
+          <select name="branch" required>
+            <option value="">Select Branch</option>
+            <option value="Branch A">Maganjo</option>
+            <option value="Branch B">Matugga</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Dealer Contact</label>
+          <input type="tel" name="dealerContact" pattern="07[0-9]{8}" required>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          <i class="fa fa-save"></i> Save Procurement
+        </button>
+
+      </form>
+    </div>
+
+  </main>
+</div>
+
+<script src="../assets/js/procurement.js"></script>
 </body>
 </html>

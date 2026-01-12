@@ -1,35 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manager Sales</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>Sales | Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <link rel="stylesheet" href="../assets/css/sales.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
+<aside class="sidebar">
+   <div class="profile">
+      <img src="../assets/img/mine.jpg" alt="Manager">
+      <h4 id="managerName">Manager</h4>
+      <small id="managerBranch"></small>
+    </div>
+  <h2>KGL Manager</h2>
+  <ul class="menu">
+      <li><a href="manager.html"><i class="fa fa-home"></i> Dashboard</a></li>
+      <li><a href="procurement.html" class="active"><i class="fa fa-truck"></i> Procurement</a></li>
+      <li><a href="stock.html"><i class="fa fa-warehouse"></i> Stock</a></li>
+      <li><a href="sales.html"><i class="fa fa-chart-line"></i> Sales</a></li>
+      <li><a href="reports.html"><i class="fa fa-file"></i> Reports</a></li>
+      <li><a href="settings.html"><i class="fa fa-gear"></i> Settings</a></li>
+    </ul>
+</aside>
 
+<main class="main-content">
 
-<form>
-    <h2 class="form-title">Cash Sales</h2>
+<header class="topbar">
+  <button onclick="history.back()">⬅ Back</button>
+  <div class="profile">
+    <span>Manager</span>
+    <!-- logout button now has an id for the logout script -->
+    <button id="logoutBtn" class="logout">
+     </i>Logout</button>
+  </div>
+</header>
 
-    <label>Produce Name</label>
-    <input type="text" required>
+<h1>Produce Sales</h1>
 
-    <label>Tonnage Sold</label>
-    <input type="number" min="1" required>
+<!-- Sale Type Selector -->
+<div class="card">
+  <label for="saleType"><strong>Select Sale Type</strong></label>
+  <select id="saleType" name="saleType" aria-label="Select sale type">
+    <option value="">-- Select --</option>
+    <option value="cash">Cash Sale</option>
+    <option value="credit">Credit Sale</option>
+  </select>
+</div>
 
-    <label>Amount Paid</label>
-    <input type="number" min="10000" required>
+<!-- Cash Sale Form -->
+<section class="card hidden" id="cashSection" aria-hidden="true">
+  <h2>Cash Sale</h2>
+  <form id="cashSaleForm" novalidate>
+    <div class="form-row">
+      <label for="produce">Produce</label>
+      <select id="produce" name="produce" required>
+        <option value="">-- Select Produce --</option>
+        <option value="tomato">Tomato</option>
+        <option value="banana">Banana</option>
+      </select>
+    </div>
 
-    <label>Buyer Name</label>
-    <input type="text" minlength="2" required>
+    <div class="form-row">
+      <label for="stock">Available Stock (kg)</label>
+      <input id="stock" name="stock" readonly placeholder="Available Stock">
+    </div>
 
-    <label>Date</label>
-    <input type="date" required>
+    <div class="form-row">
+      <label for="price">Price per Kg (UGX)</label>
+      <input id="price" name="price" readonly placeholder="Price per Kg">
+    </div>
 
-    <button type="submit">Record Sale</button>
-</form>
+    <div class="form-row">
+      <label for="tonnage">Tonnage (kg)</label>
+      <input id="tonnage" name="tonnage" type="number" min="0" placeholder="Tonnage (kg)" required>
+    </div>
 
+    <div class="form-row">
+      <label for="amountPaid">Amount Paid (UGX)</label>
+      <input id="amountPaid" name="amountPaid" type="number" min="0" placeholder="Amount Paid (UGX)" required>
+    </div>
+
+    <div class="form-row">
+      <label for="buyer">Buyer Name</label>
+      <input id="buyer" name="buyer" type="text" placeholder="Buyer Name" required>
+    </div>
+
+    <div class="form-row">
+      <label for="agent">Sales Agent Name</label>
+      <input id="agent" name="agent" type="text" placeholder="Sales Agent Name" required>
+    </div>
+
+    <div class="form-button">
+      <button type="submit">Record Cash Sale</button>
+    </div>
+  </form>
+</section>
+
+<!-- Credit Sale Form -->
+<section class="card hidden" id="creditSection" aria-hidden="true">
+  <h2>Credit Sale</h2>
+  <form id="creditSaleForm" novalidate>
+    <div class="form-row">
+      <label for="cBuyer">Buyer Name</label>
+      <input id="cBuyer" name="cBuyer" type="text" placeholder="Buyer Name" required>
+    </div>
+
+    <div class="form-row">
+      <label for="nin">National ID (NIN)</label>
+      <input id="nin" name="nin" type="text" placeholder="National ID (NIN)" required>
+    </div>
+
+    <div class="form-row">
+      <label for="location">Location</label>
+      <input id="location" name="location" type="text" placeholder="Location" required>
+    </div>
+
+    <div class="form-row">
+      <label for="contact">Contact</label>
+      <input id="contact" name="contact" type="tel" placeholder="Contact" required>
+    </div>
+
+    <div class="form-row">
+      <label for="cProduce">Produce</label>
+      <select id="cProduce" name="cProduce" required>
+        <option value="">-- Select Produce --</option>
+        <option value="tomato">Tomato</option>
+        <option value="banana">Banana</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="type">Produce Type</label>
+      <input id="type" name="type" readonly placeholder="Produce Type">
+    </div>
+
+    <div class="form-row">
+      <label for="cTonnage">Tonnage (kg)</label>
+      <input id="cTonnage" name="cTonnage" type="number" min="0" placeholder="Tonnage (kg)" required>
+    </div>
+
+    <div class="form-row">
+      <label for="amountDue">Amount Due (UGX)</label>
+      <input id="amountDue" name="amountDue" type="number" min="0" placeholder="Amount Due (UGX)" required>
+    </div>
+
+    <div class="form-row">
+      <label for="cAgent">Sales Agent Name</label>
+      <input id="cAgent" name="cAgent" type="text" placeholder="Sales Agent Name" required>
+    </div>
+
+    <div class="form-row">
+      <label for="dueDate">Due Date</label>
+      <input id="dueDate" name="dueDate" type="date" required>
+    </div>
+
+    <div class="form-row">
+      <label for="dispatchDate">Dispatch Date</label>
+      <input id="dispatchDate" name="dispatchDate" type="date" required>
+    </div>
+
+    <button type="submit" class="form-button">
+          <i class="fa fa-save"></i> Record Credit Sale
+        </button>
+  </form>
+</section>
+
+<!-- Cash Sales List -->
+<section class="card">
+  <h2>Cash Sales Records</h2>
+  <table id="cashTable">
+    <thead>
+      <tr>
+        <th>Produce</th><th>Tonnage</th><th>Amount</th><th>Buyer</th><th>Agent</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<!-- Credit Sales List -->
+<section class="card">
+  <h2>Credit Sales Records</h2>
+  <table id="creditTable">
+    <thead>
+      <tr>
+        <th>Buyer</th><th>Produce</th><th>Tonnage</th><th>Amount Due</th><th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+</main>
+
+<script src="../assets/js/sales.js"></script>
 </body>
 </html>
